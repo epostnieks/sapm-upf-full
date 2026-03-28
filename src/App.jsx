@@ -56,7 +56,7 @@ const CROSS_DOMAIN = [
 ];
 
 const HIGHLIGHTS = [
-        "β_W = 6.2 [4.8–8.1]. Full SAPM paper (distinct from §7b impossibility-frontier section). Five-channel decomposition across metabolic, addiction, agricultural, environmental, and governance.",
+        "βW = 6.2 [4.8–8.1]. Full SAPM paper (distinct from §7b impossibility-frontier section). Five-channel decomposition across metabolic, addiction, agricultural, environmental, and governance.",
         "Class III — System Welfare Destroyer. Same tier as Bitcoin (5.0) and auto emissions (6.8). Below PFAS (35.2), above AMR (2.1) and nuclear (0.7).",
         "No impossibility theorem: Chile (24% SSB decline), UK SDIL (28.8% sugar reduction via reformulation), Mexico (12% SSB reduction) all demonstrate institutional correction works.",
         "Hall et al. RCT: ad libitum UPF access → 500 kcal/day overconsumption. Mechanism: texture engineering for rapid oral processing + protein dilution (protein-leverage hypothesis).",
@@ -152,7 +152,7 @@ export default function PSTUPFFullDashboard() {
             <div style={{display:'flex',gap:12,flexWrap:'wrap',marginBottom:16}}>
               <Metric label={<>β<sub>W</sub>  (System Beta)</>} value={META.beta} sub={META.ci?`90% CI [${META.ci}]`:'Headline estimate'} color={C.gold}/>
               {META.pi && <Metric label="Private Payoff Π" value={META.pi+'/yr'} sub="Private sector capture" color={C.text}/>}
-              {META.psa && <Metric label="System-Adj. Payoff" value={META.psa} sub="Net welfare: Π − β_W·W" color={C.crimson}/>}
+              {META.psa && <Metric label="System-Adj. Payoff" value={META.psa} sub="Net welfare: Π − βW·W" color={C.crimson}/>}
               {META.mu && <Metric label="Break-Even μ*" value={META.mu} sub="Welfare neutrality threshold" color='#22C55E'/>}
               {META.kappa && <Metric label="PSF Curvature κ" value={META.kappa} sub="Pareto shortfall index" color={C.muted}/>}
             </div>
@@ -180,7 +180,7 @@ export default function PSTUPFFullDashboard() {
             <table style={{width:'100%',borderCollapse:'collapse',fontFamily:C.mono,fontSize:13}}>
               <thead>
                 <tr style={{background:C.thead}}>
-                  {['#','Channel','β_W(i)','δ_i ($/yr)','Weight'].map(h=>(
+                  {['#','Channel','βW(i)','δᵢ ($/yr)','Weight'].map(h=>(
                     <th key={h} style={{padding:'8px 12px',textAlign:h==='Channel'?'left':'right',color:C.gold,borderBottom:`1px solid ${C.border}`}}>{h}</th>
                   ))}
                 </tr>
@@ -210,7 +210,7 @@ export default function PSTUPFFullDashboard() {
             <table style={{width:'100%',borderCollapse:'collapse',fontFamily:C.mono,fontSize:13}}>
               <thead>
                 <tr style={{background:C.thead}}>
-                  {['Domain','β_W','PST Type','Π ($/yr)'].map(h=>(
+                  {['Domain','βW','PST Type','Π ($/yr)'].map(h=>(
                     <th key={h} style={{padding:'8px 12px',textAlign:h==='Domain'||h==='PST Type'?'left':'right',color:C.gold,borderBottom:`1px solid ${C.border}`}}>{h}</th>
                   ))}
                 </tr>
@@ -260,7 +260,7 @@ export default function PSTUPFFullDashboard() {
                   <th style={{padding:'8px 12px',textAlign:'left',color:C.gold}}>CAPM ANALOGUE</th>
                 </tr></thead>
                 <tbody>
-                  {[['β_W (System Beta)','β (Market Beta)'],['PSF (Private-Systemic Frontier)','SML (Security Market Line)'],[<>μ* (Shadow Price)</>,<>r<sub>f</sub> (Risk-Free Rate)</>],['Πˢᵃ (System-Adjusted Payoff)','α (Jensen\'s Alpha)'],['W (System Welfare)','No equivalent — structurally invisible'],[<>𝒮<sub>W</sub> (Welfare Efficiency)</>,<>Sharpe Ratio</>]].map(([s,c],i) => (
+                  {[[<>β<sub>W</sub> (System Beta)</>,<>β (Market Beta)</>],['PSF (Private-Systemic Frontier)','SML (Security Market Line)'],[<>μ* (Shadow Price)</>,<>r<sub>f</sub> (Risk-Free Rate)</>],['Πˢᵃ (System-Adjusted Payoff)','α (Jensen\'s Alpha)'],['W (System Welfare)','No equivalent — structurally invisible'],[<>𝒮<sub>W</sub> (Welfare Efficiency)</>,<>Sharpe Ratio</>]].map(([s,c],i) => (
                     <tr key={i} style={{borderBottom:`1px solid rgba(255,255,255,0.04)`}}>
                       <td style={{padding:'8px 12px',color:C.text}}>{s}</td>
                       <td style={{padding:'8px 12px',color:C.muted,fontFamily:C.serif}}>{c}</td>
@@ -418,7 +418,7 @@ export default function PSTUPFFullDashboard() {
       </div>
 
       
-      {/* 𝒮_W WELFARE EFFICIENCY RATIO */}
+      {/* 𝒮W WELFARE EFFICIENCY RATIO */}
       <div style={{padding:"24px",background:C.panel,border:"2px solid #D9770640",borderRadius:4,margin:"24px 0"}}>
         <div style={{fontFamily:C.mono,fontSize:12,color:"#D97706",letterSpacing:2,marginBottom:16}}>WELFARE EFFICIENCY RATIO</div>
         <div style={{display:"flex",alignItems:"baseline",gap:12,marginBottom:12}}>
