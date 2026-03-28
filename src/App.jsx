@@ -9,8 +9,8 @@ import SAPMNav from "./SAPMNav";
 const META = {
   title: "Ultra-Processed Food (Full SAPM Paper)",
   subtitle: "System Welfare Cost of Engineered Dietary Harm",
-  beta: "6.2",
-  ci: "4.8–8.1",
+  beta: "6.11",
+  ci: "4.88–7.56",
   pi: "$1.2T",
   psa: "−$6.48T",
   mu: "$0.161",
@@ -68,6 +68,26 @@ const HIGHLIGHTS = [
         "Darcey et al. (NIH, Cell Metabolism, March 2025): D2 receptor downregulation mechanism contested. Structural brain damage channel (hippocampal atrophy, dementia risk) strengthened.",
         "GLP-1 agonists (semaglutide, tirzepatide): $100B+ market by 2030 documents neurobiological disruption while proving reversibility — confirming Type II not Type I classification.",
 ];
+
+
+const PSF_PARAMS = {pi_c:68.0,pi_p:293.0,w_c:1810.0,kappa:1.38};
+const PSF_DATA = [{pi:6.8,w:1625.2},{pi:19.27,w:1692.84},{pi:31.74,w:1745.13},{pi:44.21,w:1782.08},{pi:56.68,w:1803.68},{pi:69.15,w:1809.93},{pi:81.62,w:1800.85},{pi:94.09,w:1776.42},{pi:106.56,w:1736.64},{pi:119.03,w:1681.52},{pi:131.5,w:1611.05},{pi:143.97,w:1525.24},{pi:156.44,w:1424.09},{pi:168.91,w:1307.59},{pi:181.38,w:1175.74},{pi:193.85,w:1028.55},{pi:206.32,w:866.02},{pi:218.79,w:688.14},{pi:231.26,w:494.92},{pi:243.73,w:286.35},{pi:256.2,w:62.44},{pi:268.67,w:-176.82},{pi:281.14,w:-431.42},{pi:293.61,w:-701.36},{pi:306.08,w:-986.65},{pi:318.55,w:-1287.29},{pi:331.02,w:-1603.27},{pi:343.49,w:-1934.59},{pi:355.96,w:-2281.26},{pi:368.43,w:-2643.27},{pi:380.9,w:-3020.63}];
+
+const MC_HIST = [{bin:"4.45",lo:4.4510,hi:4.5249,count:32},{bin:"4.52",lo:4.5249,hi:4.5988,count:44},{bin:"4.60",lo:4.5988,hi:4.6728,count:57},{bin:"4.67",lo:4.6728,hi:4.7467,count:86},{bin:"4.75",lo:4.7467,hi:4.8206,count:107},{bin:"4.82",lo:4.8206,hi:4.8946,count:147},{bin:"4.89",lo:4.8946,hi:4.9685,count:165},{bin:"4.97",lo:4.9685,hi:5.0425,count:198},{bin:"5.04",lo:5.0425,hi:5.1164,count:237},{bin:"5.12",lo:5.1164,hi:5.1903,count:256},{bin:"5.19",lo:5.1903,hi:5.2643,count:275},{bin:"5.26",lo:5.2643,hi:5.3382,count:290},{bin:"5.34",lo:5.3382,hi:5.4121,count:313},{bin:"5.41",lo:5.4121,hi:5.4861,count:294},{bin:"5.49",lo:5.4861,hi:5.5600,count:342},{bin:"5.56",lo:5.5600,hi:5.6340,count:340},{bin:"5.63",lo:5.6340,hi:5.7079,count:343},{bin:"5.71",lo:5.7079,hi:5.7818,count:331},{bin:"5.78",lo:5.7818,hi:5.8558,count:323},{bin:"5.86",lo:5.8558,hi:5.9297,count:341},{bin:"5.93",lo:5.9297,hi:6.0036,count:298},{bin:"6.00",lo:6.0036,hi:6.0776,count:293},{bin:"6.08",lo:6.0776,hi:6.1515,count:311},{bin:"6.15",lo:6.1515,hi:6.2255,count:309},{bin:"6.23",lo:6.2255,hi:6.2994,count:281},{bin:"6.30",lo:6.2994,hi:6.3733,count:261},{bin:"6.37",lo:6.3733,hi:6.4473,count:286},{bin:"6.45",lo:6.4473,hi:6.5212,count:256},{bin:"6.52",lo:6.5212,hi:6.5951,count:294},{bin:"6.60",lo:6.5951,hi:6.6691,count:245},{bin:"6.67",lo:6.6691,hi:6.7430,count:229},{bin:"6.74",lo:6.7430,hi:6.8170,count:237},{bin:"6.82",lo:6.8170,hi:6.8909,count:217},{bin:"6.89",lo:6.8909,hi:6.9648,count:202},{bin:"6.96",lo:6.9648,hi:7.0388,count:194},{bin:"7.04",lo:7.0388,hi:7.1127,count:176},{bin:"7.11",lo:7.1127,hi:7.1866,count:173},{bin:"7.19",lo:7.1866,hi:7.2606,count:143},{bin:"7.26",lo:7.2606,hi:7.3345,count:147},{bin:"7.33",lo:7.3345,hi:7.4085,count:157},{bin:"7.41",lo:7.4085,hi:7.4824,count:110},{bin:"7.48",lo:7.4824,hi:7.5563,count:106},{bin:"7.56",lo:7.5563,hi:7.6303,count:95},{bin:"7.63",lo:7.6303,hi:7.7042,count:88},{bin:"7.70",lo:7.7042,hi:7.7782,count:54},{bin:"7.78",lo:7.7782,hi:7.8521,count:72},{bin:"7.85",lo:7.8521,hi:7.9260,count:44},{bin:"7.93",lo:7.9260,hi:8.0000,count:36},{bin:"8.00",lo:8.0000,hi:8.0739,count:39},{bin:"8.07",lo:8.0739,hi:8.1478,count:26}];
+const MC_STATS = {mean:6.1091,median:6.0367,ci_lo:4.8823,ci_hi:7.5606,pct_hw:100.0,pct_above_3:100.0,pct_above_5:92.4,min:3.9971,max:8.7965,n_draws:10000,seed:42};
+const MC_CHANNELS = [{name:"Metabolic disease",mean:1064.69,p5:885.62,p50:1070.51,p95:1230.23,share:0.5895},{name:"Addiction & behavioral",mean:284.53,p5:208.51,p50:280.27,p95:375.05,share:0.1575},{name:"Agricultural distortion",mean:156.74,p5:114.61,p50:156.39,p95:200.23,share:0.0868},{name:"Environmental degradation",mean:119.87,p5:81.80,p50:118.51,p95:160.92,share:0.0664},{name:"Governance capture",mean:73.29,p5:43.25,p50:72.26,p95:104.96,share:0.0406},{name:"Intergenerational harm",mean:106.91,p5:71.07,p50:105.33,p95:146.21,share:0.0592}];
+const MC_WELFARE = {mean:1806.02,ci_lo:1600.21,ci_hi:2000.29};
+
+const THRESHOLDS = [{domain:"U.S. FDA front-of-pack labeling implementation",year:2027,confidence:"Medium",status:"FDA proposed January 2025; final rule expected 2026-2027",crossed:false},{domain:"GLP-1 agonist UPF demand disruption >10% market reduction",year:2028,confidence:"Medium",status:"Semaglutide/tirzepatide reducing UPF demand in clinical populations; market signal emerging",crossed:false},{domain:"California UPF labeling mandate",year:2028,confidence:"High",status:"AB 1066 enacted; implementation 2028",crossed:false},{domain:"SSB tax adoption in >10 U.S. states",year:2030,confidence:"Low",status:"Currently ~7 cities/1 state; industry preemption has blocked state-level adoption",crossed:false},{domain:"UK SDIL sugar reduction validated (>20% reformulation)",year:2020,confidence:"High",status:"28.8% average sugar reduction in covered beverages documented by 2020",crossed:true}];
+
+const AXIOMS = {type:"institutional",items:[{id:"I1",name:"Palatability engineering beyond satiety",description:"UPF bliss-point optimization (Moskowitz methodology) engineers consumption rates that exceed satiety signals — producing 500 kcal/day overconsumption in RCT conditions (Hall et al. 2019) through mechanisms invisible at point of purchase."},{id:"I2",name:"Dietary guidelines regulatory capture",description:"95% COI rate on the 2020 DGAC with 700+ documented industry ties systematically excludes processing-level evidence from official guidance, preventing the information revelation that Pigouvian correction requires."},{id:"I3",name:"Subsidy-demand feedback",description:"$240.5B in Farm Bill commodity subsidies create structural price advantages for UPF ingredients (refined starches, corn syrup, vegetable oils) over whole foods, making UPF artificially cheap relative to nutritional equivalents."}]};
+
+const METHODS_DATA = {
+  welfare_function: "W computed across six channels: metabolic disease health costs (Rockefeller Foundation $1.1T anchor), addiction-welfare loss (YFAS prevalence × decision-utility gap), agricultural distortion, environmental degradation, governance capture, and intergenerational developmental harm.",
+  cooperative_baseline: "Food system generating $68B in legitimate processing premium from genuine value-adding preservation, distribution, and preparation — without bliss-point addiction engineering or governance capture.",
+  falsification: ["F1: Demonstrate that Hall et al. RCT 500 kcal/day overconsumption finding fails to replicate in a pre-registered, equivalently powered study with matched macronutrient content.","F2: Show that Chile\'s FLAL (front-of-pack labeling, marketing bans, school sales restrictions) failed to reduce SSB purchases or improve nutritional outcomes in the 3 years following implementation.","F3: Demonstrate that YFAS-measured food addiction prevalence does not predict treatment-resistant overconsumption or neurobiological markers of addictive behavior."],
+  key_sources: ["Hall et al., Ultra-processed diets cause excess calorie intake (2019) Cell Metabolism","Rockefeller Foundation, True Cost of Food (2021)","Fazzino et al., Hyper-palatable foods (2019, 2023)","WHO, Global action plan for the prevention of NCDs (2023)"]
+};
 
 const C = {
   bg:'#0D0D0D', panel:'#1A1A1A', border:'rgba(255,255,255,0.08)',
@@ -258,58 +278,59 @@ export default function PSTUPFFullDashboard() {
         )}
 
         {/* MONTE CARLO TAB */}
+
+        {/* MONTE CARLO TAB */}
         {tab === 'monte-carlo' && (
           <div>
-            <SectionTitle>Monte Carlo Robustness — {MC_PARAMS.n_draws.toLocaleString()} Draws</SectionTitle>
+            <SectionTitle>Monte Carlo Simulation — {MC_STATS.n_draws.toLocaleString()} Draws (seed={MC_STATS.seed})</SectionTitle>
             <div style={{background:C.panel,border:`1px solid ${C.border}`,borderRadius:4,padding:16,marginBottom:16}}>
-              <ResponsiveContainer width="100%" height={280}>
-                <BarChart data={MC_DATA} margin={{top:10,right:30,left:20,bottom:10}}>
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={MC_HIST} margin={{top:10,right:30,left:20,bottom:30}}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
-                  <XAxis dataKey="bin" stroke={C.muted} tick={{fontFamily:C.mono,fontSize:10}} />
+                  <XAxis dataKey="bin" stroke={C.muted} tick={{fontFamily:C.mono,fontSize:9}} angle={-45} textAnchor="end" interval={4} />
                   <YAxis stroke={C.muted} tick={{fontFamily:C.mono,fontSize:11}} />
-                  <Tooltip contentStyle={{background:C.panel,border:`1px solid ${C.border}`,fontFamily:C.mono,fontSize:12,color:C.text}} />
+                  <Tooltip contentStyle={{background:C.panel,border:`1px solid ${C.border}`,fontFamily:C.mono,fontSize:12,color:C.text}} formatter={(v)=>[v,'Draws']} />
                   <Bar dataKey="count" fill={C.gold} />
-                  <ReferenceLine x={MC_PARAMS.mean.toFixed(1)} stroke={C.crimson} strokeDasharray="5 5" label={{value:'β̄='+MC_PARAMS.mean,fill:C.crimson,fontFamily:C.mono,fontSize:11}} />
+                  <ReferenceLine x={MC_STATS.mean.toFixed(2)} stroke={C.crimson} strokeWidth={2} strokeDasharray="5 5" label={{value:'μ='+MC_STATS.mean.toFixed(2),fill:C.crimson,fontFamily:C.mono,fontSize:11,position:'top'}} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
             <div style={{display:'flex',gap:12,flexWrap:'wrap',marginBottom:16}}>
-              <Metric label="MEAN β_W" value={MC_PARAMS.mean} color={C.gold} />
-              <Metric label="90% CI" value={'['+MC_PARAMS.ci_lo+', '+MC_PARAMS.ci_hi+']'} color={C.muted} />
-              <Metric label="% HOLLOW WIN" value={MC_PARAMS.pct_hw+'%'} color={MC_PARAMS.pct_hw > 90 ? C.crimson : C.gold} />
+              <Metric label="MEAN β_W" value={MC_STATS.mean.toFixed(2)} sub={'Median: '+MC_STATS.median.toFixed(2)} color={C.gold} />
+              <Metric label="90% CI" value={'['+MC_STATS.ci_lo.toFixed(2)+', '+MC_STATS.ci_hi.toFixed(2)+']'} sub={'Range: '+MC_STATS.min.toFixed(2)+'–'+MC_STATS.max.toFixed(2)} color={C.muted} />
+              <Metric label="% HOLLOW WIN" value={MC_STATS.pct_hw.toFixed(1)+'%'} sub={'β_W > 1 in all draws'} color={MC_STATS.pct_hw > 95 ? C.crimson : C.gold} />
+              <Metric label="% β_W > 3" value={MC_STATS.pct_above_3.toFixed(1)+'%'} color={MC_STATS.pct_above_3 > 90 ? C.crimson : C.gold} />
+              <Metric label="% β_W > 5" value={MC_STATS.pct_above_5.toFixed(1)+'%'} color={MC_STATS.pct_above_5 > 50 ? '#D97706' : C.gold} />
             </div>
-            {MC_PARAMS.channels && MC_PARAMS.channels.length > 0 && (
-              <div style={{padding:16,background:C.panel,border:`1px solid ${C.border}`,borderRadius:4}}>
-                <div style={{fontFamily:C.mono,fontSize:12,color:C.gold,marginBottom:8}}>DISTRIBUTION PARAMETERS</div>
-                <table style={{width:'100%',borderCollapse:'collapse',fontFamily:C.mono,fontSize:13}}>
-                  <thead><tr style={{borderBottom:`1px solid ${C.border}`}}>
-                    <th style={{padding:'6px 10px',textAlign:'left',color:C.gold}}>CHANNEL</th>
-                    <th style={{padding:'6px 10px',textAlign:'left',color:C.gold}}>DISTRIBUTION</th>
-                    <th style={{padding:'6px 10px',textAlign:'right',color:C.gold}}>LOW</th>
-                    <th style={{padding:'6px 10px',textAlign:'right',color:C.gold}}>HIGH</th>
-                  </tr></thead>
-                  <tbody>
-                    {MC_PARAMS.channels.map((ch,i) => (
-                      <tr key={i} style={{borderBottom:`1px solid rgba(255,255,255,0.04)`}}>
-                        <td style={{padding:'6px 10px',color:C.text}}>{ch.name}</td>
-                        <td style={{padding:'6px 10px',color:C.muted}}>{ch.dist}</td>
-                        <td style={{padding:'6px 10px',color:C.muted,textAlign:'right'}}>{ch.lo}</td>
-                        <td style={{padding:'6px 10px',color:C.muted,textAlign:'right'}}>{ch.hi}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
+            <SectionTitle>Channel Welfare Contributions</SectionTitle>
+            <table style={{width:'100%',borderCollapse:'collapse',fontFamily:C.mono,fontSize:13}}>
+              <thead><tr style={{borderBottom:`1px solid ${C.border}`}}>
+                <th style={{padding:'8px 12px',textAlign:'left',color:C.gold}}>CHANNEL</th>
+                <th style={{padding:'8px 12px',textAlign:'right',color:C.gold}}>MEAN $B</th>
+                <th style={{padding:'8px 12px',textAlign:'right',color:C.gold}}>P5</th>
+                <th style={{padding:'8px 12px',textAlign:'right',color:C.gold}}>P50</th>
+                <th style={{padding:'8px 12px',textAlign:'right',color:C.gold}}>P95</th>
+                <th style={{padding:'8px 12px',textAlign:'right',color:C.gold}}>SHARE</th>
+              </tr></thead>
+              <tbody>
+                {MC_CHANNELS.map((ch,i) => (
+                  <tr key={i} style={{borderBottom:`1px solid rgba(255,255,255,0.04)`,background:i%2===0?C.panel:C.bg}}>
+                    <td style={{padding:'8px 12px',color:C.text,fontFamily:C.serif,fontSize:14}}>{ch.name}</td>
+                    <td style={{padding:'8px 12px',color:C.gold,textAlign:'right',fontWeight:600}}>{ch.mean.toFixed(1)}</td>
+                    <td style={{padding:'8px 12px',color:C.muted,textAlign:'right'}}>{ch.p5.toFixed(1)}</td>
+                    <td style={{padding:'8px 12px',color:C.muted,textAlign:'right'}}>{ch.p50.toFixed(1)}</td>
+                    <td style={{padding:'8px 12px',color:C.muted,textAlign:'right'}}>{ch.p95.toFixed(1)}</td>
+                    <td style={{padding:'8px 12px',color:C.muted,textAlign:'right'}}>{(ch.share*100).toFixed(1)}%</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div style={{marginTop:16,padding:12,background:'rgba(245,158,11,0.06)',border:`1px solid rgba(245,158,11,0.15)`,borderRadius:4}}>
+              <div style={{fontFamily:C.mono,fontSize:11,color:C.muted}}>Total welfare cost: <span style={{color:C.gold}}>${MC_WELFARE.mean.toFixed(1)}B</span> (90% CI: ${MC_WELFARE.ci_lo.toFixed(1)}B – ${MC_WELFARE.ci_hi.toFixed(1)}B) · Source: sapm_monte_carlo.py (seed=42)</div>
+            </div>
           </div>
         )}
-
-        {/* THRESHOLDS TAB */}
-        {tab === 'thresholds' && (
-          <div>
-            <SectionTitle>Critical Thresholds & Predicted Crossover</SectionTitle>
-            <div style={{background:C.panel,border:`1px solid ${C.border}`,borderRadius:4,padding:16,marginBottom:16}}>
-              <ResponsiveContainer width="100%" height={Math.max(200, THRESHOLDS.length * 44)}>
+>
                 <BarChart data={THRESHOLDS.map(t=>({...t,yearsFromNow:t.year-2026}))} layout="vertical" margin={{top:10,right:30,left:180,bottom:10}}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
                   <XAxis type="number" stroke={C.muted} tick={{fontFamily:C.mono,fontSize:11}} label={{value:"Years from 2026",position:"bottom",fill:C.muted,fontFamily:C.mono,fontSize:11}} />
