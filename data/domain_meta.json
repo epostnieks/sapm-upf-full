@@ -1,0 +1,138 @@
+{
+  "key": "sapm-upf-full",
+  "meta_fill": {
+    "pi": "$293B",
+    "psa": "-$1.517T",
+    "mu": "0.161",
+    "kappa": "1.38"
+  },
+  "psf": {
+    "pi_c": 68.0,
+    "pi_p": 293.0,
+    "w_c": 1810.0,
+    "kappa": 1.38
+  },
+  "monte_carlo": {
+    "mean": 4.82,
+    "ci_lo": 3.6,
+    "ci_hi": 7.4,
+    "pct_hw": 99.6,
+    "n_draws": 10000,
+    "channels": [
+      {
+        "name": "Metabolic disease",
+        "dist": "triangular",
+        "lo": 800,
+        "hi": 1300,
+        "mode": 1100
+      },
+      {
+        "name": "Addiction & behavioral hijacking",
+        "dist": "log-normal",
+        "lo": 100,
+        "hi": 280,
+        "mode": 180
+      },
+      {
+        "name": "Agricultural distortion",
+        "dist": "triangular",
+        "lo": 95,
+        "hi": 220,
+        "mode": 155
+      },
+      {
+        "name": "Environmental degradation",
+        "dist": "triangular",
+        "lo": 65,
+        "hi": 180,
+        "mode": 115
+      },
+      {
+        "name": "Governance capture",
+        "dist": "triangular",
+        "lo": 30,
+        "hi": 120,
+        "mode": 70
+      },
+      {
+        "name": "Intergenerational harm",
+        "dist": "triangular",
+        "lo": 55,
+        "hi": 165,
+        "mode": 100
+      }
+    ]
+  },
+  "thresholds": [
+    {
+      "domain": "U.S. FDA front-of-pack labeling implementation",
+      "year": 2027,
+      "confidence": "Medium",
+      "status": "FDA proposed January 2025; final rule expected 2026-2027",
+      "crossed": false
+    },
+    {
+      "domain": "GLP-1 agonist UPF demand disruption >10% market reduction",
+      "year": 2028,
+      "confidence": "Medium",
+      "status": "Semaglutide/tirzepatide reducing UPF demand in clinical populations; market signal emerging",
+      "crossed": false
+    },
+    {
+      "domain": "California UPF labeling mandate",
+      "year": 2028,
+      "confidence": "High",
+      "status": "AB 1066 enacted; implementation 2028",
+      "crossed": false
+    },
+    {
+      "domain": "SSB tax adoption in >10 U.S. states",
+      "year": 2030,
+      "confidence": "Low",
+      "status": "Currently ~7 cities/1 state; industry preemption has blocked state-level adoption",
+      "crossed": false
+    },
+    {
+      "domain": "UK SDIL sugar reduction validated (>20% reformulation)",
+      "year": 2020,
+      "confidence": "High",
+      "status": "28.8% average sugar reduction in covered beverages documented by 2020",
+      "crossed": true
+    }
+  ],
+  "axioms": {
+    "type": "institutional",
+    "items": [
+      {
+        "id": "I1",
+        "name": "Palatability engineering beyond satiety",
+        "description": "UPF bliss-point optimization (Moskowitz methodology) engineers consumption rates that exceed satiety signals \u2014 producing 500 kcal/day overconsumption in RCT conditions (Hall et al. 2019) through mechanisms invisible at point of purchase."
+      },
+      {
+        "id": "I2",
+        "name": "Dietary guidelines regulatory capture",
+        "description": "95% COI rate on the 2020 DGAC with 700+ documented industry ties systematically excludes processing-level evidence from official guidance, preventing the information revelation that Pigouvian correction requires."
+      },
+      {
+        "id": "I3",
+        "name": "Subsidy-demand feedback",
+        "description": "$240.5B in Farm Bill commodity subsidies create structural price advantages for UPF ingredients (refined starches, corn syrup, vegetable oils) over whole foods, making UPF artificially cheap relative to nutritional equivalents."
+      }
+    ]
+  },
+  "methods": {
+    "welfare_function": "W computed across six channels: metabolic disease health costs (Rockefeller Foundation $1.1T anchor), addiction-welfare loss (YFAS prevalence \u00d7 decision-utility gap), agricultural distortion, environmental degradation, governance capture, and intergenerational developmental harm.",
+    "cooperative_baseline": "Food system generating $68B in legitimate processing premium from genuine value-adding preservation, distribution, and preparation \u2014 without bliss-point addiction engineering or governance capture.",
+    "key_sources": [
+      "Hall et al., Ultra-processed diets cause excess calorie intake (2019) Cell Metabolism",
+      "Rockefeller Foundation, True Cost of Food (2021)",
+      "Fazzino et al., Hyper-palatable foods (2019, 2023)",
+      "WHO, Global action plan for the prevention of NCDs (2023)"
+    ],
+    "falsification": [
+      "F1: Demonstrate that Hall et al. RCT 500 kcal/day overconsumption finding fails to replicate in a pre-registered, equivalently powered study with matched macronutrient content.",
+      "F2: Show that Chile's FLAL (front-of-pack labeling, marketing bans, school sales restrictions) failed to reduce SSB purchases or improve nutritional outcomes in the 3 years following implementation.",
+      "F3: Demonstrate that YFAS-measured food addiction prevalence does not predict treatment-resistant overconsumption or neurobiological markers of addictive behavior."
+    ]
+  }
+}
